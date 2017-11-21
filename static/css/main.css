@@ -20,6 +20,8 @@ a:active {
 .navbar>li>a:focus {
     background-color: #ccc;
 }
-.navbar-offset {
+.container.main {
     margin-top: 50px;
+    padding-top: 30px;
+    padding-bottom: 30px;
 }
