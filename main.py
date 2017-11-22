@@ -17,7 +17,7 @@ def present():
 
 @app.route('/listen')
 def listen():
-    return render_template('index.html')
+    return render_template('listen.html')
 
 
 @socketio.on('message')
