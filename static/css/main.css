@@ -3,6 +3,7 @@ html {
 }
 body {
     background-image: url("../img/pink-bg.jpg");
+    background-color: #f080ff !important;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
