@@ -21,7 +21,16 @@ a:active {
     background-color: #ccc;
 }
 .container.main {
-    margin-top: 50px;
+    margin-top: 52px;
     padding-top: 30px;
     padding-bottom: 30px;
+}
+.navbar {
+    transition-duration: 0.3s;
+}
+@media(max-width: 768px) {
+    .navbar-scroll-custom {
+        transform: translateY(-52px);
+        transition-duration: 0.6s;
+    }
 }
