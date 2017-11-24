@@ -20,6 +20,10 @@ def present():
     return render_template('present.html')
 
 
+@app.route('/courses')
+def courses():
+    return render_template('courses.html')
+
 @app.route('/listen')
 def listen():
     return render_template('listen.html')
