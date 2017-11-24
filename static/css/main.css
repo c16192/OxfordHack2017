@@ -19,3 +19,29 @@ a:active {
     padding-top: 30px;
     padding-bottom: 30px;
 }
+.form-control:focus {
+    border-color: transparent;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(255, 0, 0, 0.6);
+}
+.btn-square {
+    width: 40px !important;
+    height: 40px !important;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    border-radius: 10%;
+}
+.searchbox {
+    width: 50%;
+}
+.searchbox input.form-control {
+    /* Firefox */
+    width: -moz-calc(100% - 50px);
+    /* WebKit */
+    width: -webkit-calc(100% - 50px);
+    /* Opera */
+    width: -o-calc(100% - 50px);
+    /* Standard */
+    width: calc(100% - 50px);
+    ;
+}

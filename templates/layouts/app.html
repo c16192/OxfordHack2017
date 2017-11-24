@@ -13,10 +13,25 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-light fixed-top bg-dark">
+    <nav class="navbar navbar-light fixed-top bg-danger">
         <a class="navbar-brand" href="#">
             <img src="{{ url_for('static', filename='img/logo.png') }}" height="30" class="d-inline-block align-top" alt="">
         </a>
+        <form class="form-inline my-2 my-lg-0 searchbox">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-square btn-danger" type="submit"><i class="fa fa-search">
+            </i></button>
+        </form>
+        <div class="btn-toolbar" role="toolbar">
+            <button type="button" class="btn btn-square btn-danger">
+                <i class="fa fa-cog"></i>
+            </button><div class="btn-group" role="group">
+                <button type="button" class="btn btn-square btn-danger"><i class="fa fa-bell"></i></button>
+                <button type="button" class="btn btn-square btn-danger">
+                    <i class="fa fa-user"></i>
+                </button>
+            </div>
+        </div>
     </nav>
     <div class="container-fluid main">
     {% block content %}{% endblock %}
