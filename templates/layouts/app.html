@@ -3,20 +3,22 @@
 <head>
     <title>Talcoach @ OxfordHack 2017</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}">
     <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
-        crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.css') }}">
+    <!--Fonts-->
+    <link rel="stylesheet" media="screen" href="{{ url_for('static', filename='fonts/font-awesome/font-awesome.min.css')}}">
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}">
     {% block styles %}{% endblock %}
 </head>
 
 <body>
-    <nav class="navbar navbar-light fixed-top">
+    <nav class="navbar navbar-light fixed-top bg-dark">
         <a class="navbar-brand" href="#">
             <img src="{{ url_for('static', filename='img/logo.png') }}" height="30" class="d-inline-block align-top" alt="">
         </a>
     </nav>
-    <div class="container main">
+    <div class="container-fluid main">
     {% block content %}{% endblock %}
     </div>
 </body>

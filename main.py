@@ -10,6 +10,11 @@ def index():
     return render_template('index.html')
 
 
+@app.route('/courses')
+def courses():
+    return render_template('courses.html')
+
+
 @app.route('/present')
 def present():
     return render_template('present.html')

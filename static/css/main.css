@@ -1,13 +1,6 @@
 html {
     height: 100%;
 }
-body {
-    background-image: url("../img/pink-bg.jpg");
-    background-color: #f080ff !important;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
 a {
     color: #eee !important;
 }
@@ -21,7 +14,7 @@ a:active {
 .navbar>li>a:focus {
     background-color: #ccc;
 }
-.container.main {
+.container-fluid.main {
     margin-top: 52px;
     padding-top: 30px;
     padding-bottom: 30px;
