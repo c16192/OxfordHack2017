@@ -19,7 +19,7 @@ def courses():
         data = request.form
         print(data, file=sys.stderr)
         keyword = data.get('search')
-        videos = json.loads(youtube(keyword, 10))
+        videos = json.loads(youtube.youtube(keyword, 10))
     return render_template('courses.html', videos = videos)
 
 @app.route('/present')

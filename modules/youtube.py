@@ -45,11 +45,18 @@ def youtube_search(options):
     return json.dumps([])
 
 def youtube(keyword, maxResults=25):
-  argparser.add_argument("--q", help="Search term", default=keyword)
-  argparser.add_argument("--max-results", help="Max results", default=maxResults)
-  args = argparser.parse_args()
+  args = argparser.parse_args([])
+  if not hasattr(args, 'q'):
+    argparser.add_argument("--q", help="Search term", default='')
+  if not hasattr(args, 'max_results'):
+    argparser.add_argument("--max-results", help="Max results", default=25)
+  argparser.set_defaults(q=keyword)
+  argparser.set_defaults(max_results=maxResults)
+  args = argparser.parse_args([])
   print(args)
-  return youtube_search(args)
+  string = youtube_search(args)
+  print(string[0:200])
+  return string
 
 if __name__ == "__main__":
   youtube("Google")
