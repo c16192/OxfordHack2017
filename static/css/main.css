@@ -14,11 +14,6 @@ a:active {
 .navbar>li>a:focus {
     background-color: #ccc;
 }
-.container-fluid.main {
-    margin-top: 52px;
-    padding-top: 30px;
-    padding-bottom: 30px;
-}
 .form-control:focus {
     border-color: transparent;
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(255, 0, 0, 0.6);
@@ -34,6 +29,11 @@ a:active {
 .searchbox {
     width: 50%;
 }
+@media (max-width: 575px) {
+    .searchbox {
+        width: 100%;
+    }
+}
 .searchbox input.form-control {
     /* Firefox */
     width: -moz-calc(100% - 50px);
@@ -44,4 +44,102 @@ a:active {
     /* Standard */
     width: calc(100% - 50px);
     ;
+}
+.navbar-static-top {
+    position: sticky;
+    top: 0;
+    z-index: 9999;
+}
+.videoWrapper {
+    position: relative;
+	padding-bottom: 56.25%; /* 16:9 */
+	height: 0;
+}
+.videoWrapper iframe {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+.card-img-overlay {
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    line-height: 18px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+}
+.cont-left {
+    width: 200px;
+    padding: 6px 15px;
+    float: left;
+}
+.cont-right {
+    width: -moz-calc(100% - 200px);
+    /* WebKit */
+    width: -webkit-calc(100% - 200px);
+    /* Opera */
+    width: -o-calc(100% - 200px);
+    /* Standard */
+    width: calc(100% - 200px);
+    float: right;
+}
+.col-cent {
+    width: -moz-calc(100% - 200px);
+    /* WebKit */
+    width: -webkit-calc(100% - 200px);
+    /* Opera */
+    width: -o-calc(100% - 200px);
+    /* Standard */
+    width: calc(100% - 200px);
+    padding: 15px;
+    float: left;;
+}
+.col-right {
+    width: 200px;
+    padding: 15px;
+    float: right;
+}
+.col-graph {
+    width: 100%;
+    background: #ccc;
+    clear: both;
+}
+@media (max-width: 767px) {
+    .col-cent {
+        width: 100%;
+    }
+    .col-graph {
+        width: -moz-calc(100% - 200px);
+        /* WebKit */
+        width: -webkit-calc(100% - 200px);
+        /* Opera */
+        width: -o-calc(100% - 200px);
+        /* Standard */
+        width: calc(100% - 200px);
+        padding: 15px;
+        float: left;
+    }
+    .cont-left {
+        width: 100%;
+        overflow-x: scroll;
+        white-space: nowrap;
+        float: none;
+    }
+    .cont-right {
+        width: 100%;
+        float: none;
+    }
+    .col-graph {
+        clear: none;
+    }
+    .card {
+        display: inline-block;
+        width: 200px;
+        margin-bottom: 0px !important;
+    }
 }

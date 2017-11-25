@@ -1,5 +1,7 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 from flask_socketio import SocketIO, send, emit
+from modules import youtube
+import sys
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'secret!'
@@ -10,10 +12,15 @@ def index():
     return render_template('index.html')
 
 
-@app.route('/courses')
+@app.route('/courses', methods=['GET', 'POST'])
 def courses():
-    return render_template('courses.html')
-
+    videos = []
+    if request.method == 'POST':
+        data = request.form
+        print(data, file=sys.stderr)
+        keyword = data.get('search')
+        videos = youtube(keyword, 10)
+    return render_template('courses.html', videos = videos)
 
 @app.route('/present')
 def present():

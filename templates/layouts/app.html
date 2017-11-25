@@ -13,12 +13,12 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-light fixed-top bg-danger">
+    <nav class="navbar navbar-light navbar-static-top bg-danger">
         <a class="navbar-brand" href="#">
             <img src="{{ url_for('static', filename='img/logo.png') }}" height="30" class="d-inline-block align-top" alt="">
         </a>
-        <form class="form-inline my-2 my-lg-0 searchbox">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <form action="/courses" method="post" class="form-inline my-2 my-lg-0 searchbox">
+            <input class="form-control mr-sm-2" type="search" name="search" placeholder="Search" aria-label="Search">
             <button class="btn btn-square btn-danger" type="submit"><i class="fa fa-search">
             </i></button>
         </form>
