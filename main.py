@@ -16,11 +16,18 @@ def index():
 def courses():
     videos = []
     if request.method == 'POST':
+        get_json = request.json
         data = request.form
         print(data, file=sys.stderr)
         keyword = data.get('search')
         videos = json.loads(youtube.youtube(keyword, 10))
     return render_template('courses.html', videos = videos)
+
+
+@app.route('/show', methods=['POST'])
+def show():
+    get_json = request.json
+    return Response(json.dumps(return_json))
 
 @app.route('/present')
 def present():

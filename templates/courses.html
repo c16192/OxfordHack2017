@@ -3,11 +3,11 @@
 <div class="row">
     <div class="cont-left">
         {% for video in videos %}
-        <div class="card my-2 bg-dark text-white">
-            <img class="card-img" src="{{ video['image'] }}" alt="Card image">
-            <div class="card-img-overlay">
-                <p class="card-text">{{ video['title'] }}</p>
-            </div>
+        <div class="card my-2 bg-dark text-white" id="{{ video['id'] }}">
+                <img class="card-img" src="{{ video['image'] }}" alt="Card image">
+                <div class="card-img-overlay">
+                    <p class="card-text">{{ video['title'] }}</p>
+                </div>
         </div>      
         {% endfor %}
     </div>
@@ -15,7 +15,7 @@
         <div class="col-cent">
             <div class="videoWrapper">
                 <!-- Copy & Pasted from YouTube -->
-                <iframe width="560" height="349" src="https://www.youtube.com/embed/t1e8gqXLbsU" frameborder="0" allowfullscreen></iframe>
+                <iframe id="main_video" width="560" height="349" src="" frameborder="0" allowfullscreen></iframe>
             </div>
         </div>
         <div class="col-right">
@@ -29,4 +29,15 @@
         </div>
     </div>
 </div>
+{% endblock %}
+
+{% block scripts %}
+<script type=text/javascript>
+    $(function(){
+      $(".card").one("click", function(){
+        var video_url = "https://www.youtube.com/embed/"+$(this).attr("id");
+        document.getElementById('main_video').setAttribute("src", video_url);
+      });
+    });
+  </script>
 {% endblock %}
