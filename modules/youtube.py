@@ -49,4 +49,4 @@ def youtube(keyword, maxResults=25):
   return youtube_search(args)
 
 if __name__ == "__main__":
-  youtube("google")
+  youtube("Google")
