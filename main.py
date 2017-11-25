@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request
 from flask_socketio import SocketIO, send, emit
 from modules import youtube
-import sys
+import sys, json
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'secret!'
@@ -19,7 +19,7 @@ def courses():
         data = request.form
         print(data, file=sys.stderr)
         keyword = data.get('search')
-        videos = youtube(keyword, 10)
+        videos = json.loads(youtube(keyword, 10))
     return render_template('courses.html', videos = videos)
 
 @app.route('/present')

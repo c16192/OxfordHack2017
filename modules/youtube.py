@@ -4,6 +4,7 @@
 from apiclient.discovery import build
 from apiclient.errors import HttpError
 from oauth2client.tools import argparser
+import json
 
 # Set DEVELOPER_KEY to the API key value from the APIs & auth > Registered apps
 # tab of
@@ -34,18 +35,20 @@ def youtube_search(options):
     # matching videos, channels, and playlists.
     for search_result in search_response.get("items", []):
       if search_result["id"]["kind"] == "youtube#video":
-        search_result["snippet"]["title"] = removeNonAscii(search_result["snippet"]["title"])
-        videos.append(search_result)
-
-    return videos
+        video = {}
+        video["title"] = removeNonAscii(search_result["snippet"]["title"])
+        video["id"] = removeNonAscii(search_result["id"]["videoId"])
+        video["image"] = removeNonAscii(search_result["snippet"]["thumbnails"]["default"]["url"])
+        videos.append(video)
+    return json.dumps(videos)
   except():
-    return []
+    return json.dumps([])
 
 def youtube(keyword, maxResults=25):
   argparser.add_argument("--q", help="Search term", default=keyword)
   argparser.add_argument("--max-results", help="Max results", default=maxResults)
   args = argparser.parse_args()
-  
+  print(args)
   return youtube_search(args)
 
 if __name__ == "__main__":
